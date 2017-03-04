@@ -1,0 +1,19 @@
+{
+    "author": "David Cheung <david.cheung@motherapp.com>",
+    "dependencies": {},
+    "description": "a bot for memorising my deceased blood parrot cichlid",
+    "keywords": [
+        "Recime",
+        "Bot"
+    ],
+    "license": "MIT",
+    "main": "main.js",
+    "name": "chubao",
+    "private": true,
+    "scripts": {
+        "build": "tsc",
+        "preinstall": "npm install -g typescript"
+    },
+    "title": "chubao",
+    "version": "1.0.1"
+}
