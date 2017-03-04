@@ -1,6 +1,7 @@
 /// <reference path="node.d.ts" />
 
-import util = require('util')
+import util = require('util');
+
 
 export class Bot {
 

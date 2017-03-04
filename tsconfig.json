@@ -1,15 +1,20 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "sourceMap": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "removeComments": false,
-    "noImplicitAny": false
-  },
-  "exclude" : [
-    "node_modules",
-    "js"
-  ]
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "commonjs",
+        "sourceMap": false,
+        "allowJs": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": false,
+        "noImplicitAny": false,
+        "baseUrl": ".",
+        "paths": {
+            "api-ai": ["node_modules/api-ai-javascript/index.ts"],
+            "utils": ["node.d.ts"]
+        }
+    },
+    "exclude": [
+        "node_modules"
+    ]
 }
