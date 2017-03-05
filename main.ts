@@ -11,23 +11,44 @@ export class Bot {
         this.args = args;
     }
 
+    get extract() {
+        return "message.text";
+    }
+
     execute(cb: any) {
         let args = this.args;
         let text: string = args.text;
+        let payload = {};
 
-        if (text) {
-            if (text.indexOf("name") >= 0) {
-                cb({
-                    "text": "Error, please pass in ‘name’ parameter."
-                });
+        console.log(args);
+
+        if (args.apiai) {
+            let result = args.apiai.result;
+            let speech = result.fulfillment.speech;
+
+            switch (result.action) {
+                case 'input.unknown':
+                case 'input.food':
+                    payload = {
+                        text: speech
+                    };
             }
-            else {
-                cb({
-                    text: util.format("Hello %s", text)
-                });
+
+            if (speech) {
+                payload = {
+                    text: speech
+                };
+            } else {
+                payload = {
+                    attachment: {
+                        type: "image",
+                        payload: {
+                            url: result.fulfillment.messages[0]["imageUrl"]
+                        }
+                    }
+                };
             }
-        } else {
-            throw "Missing \"text\" property."
         }
+        return cb(payload);
     }
 }
